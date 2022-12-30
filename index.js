@@ -1,3 +1,4 @@
+// Event listner for Contact form
 document
   .getElementById("contact-form")
   .addEventListener("submit", function (e) {
@@ -34,3 +35,30 @@ document
       },
     });
   });
+
+//Event Listner for Dark-light toggle
+
+document.getElementById("theme-toggle").addEventListener("click", function () {
+  let darkIcn = document.getElementById("theme-toggle-dark-icon");
+  let lightIcn = document.getElementById("theme-toggle-light-icon");
+
+  if (darkIcn.classList.contains("hidden")) {
+    // Current is in darkmode
+    darkIcn.classList.remove("hidden");
+    lightIcn.classList.add("hidden");
+    document.documentElement.classList.remove("dark");
+  } else {
+    lightIcn.classList.remove("hidden");
+    darkIcn.classList.add("hidden");
+    document.documentElement.classList.add("dark");
+  }
+});
+
+//Add Transition
+setTimeout(function () {
+  document.body.classList.add(
+    "transition-colors",
+    "duration-500",
+    "ease-in-out"
+  );
+}, 1);
